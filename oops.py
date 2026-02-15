@@ -244,19 +244,261 @@
 
 # Create a class called Order which stores item & its price. Use Dunder function __gt__() to convey that: order1 > order2 if price of order1 > price of order2
 
-class Order: 
-    def __init__(self, name, price): 
-        self.name = name
-        self.price = price
+# class Order: 
+#     def __init__(self, name, price): 
+#         self.name = name
+#         self.price = price
 
-    def __gt__(self, odr): 
-        return self.price > odr.price
+#     def __gt__(self, odr): 
+#         return self.price > odr.price
 
-odr1 = Order("Chips", 20)
-odr2 = Order("Tea", 15)
+# odr1 = Order("Chips", 20)
+# odr2 = Order("Tea", 15)
 
-if(odr1 > odr2):
-    print("Order 1 is expensive than Order 2")
-else: 
-    print("Order 2 is expensive than Order 1")
+# if(odr1 > odr2):
+#     print("Order 1 is expensive than Order 2")
+# else: 
+#     print("Order 2 is expensive than Order 1")
         
+
+# class Dog: 
+#     species = "Cannie"
+
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+
+# d1 = Dog("Tom", 4)
+
+# # print(f"Dog Name: {d1.name}\nDog Age: {d1.age}\nDog Species: {d1.species}")
+
+# # print(f"Dog Species access using Class: ", Dog.species)
+
+# print("Dog 1 Species: ", d1.species)
+# print("Dog Species: ", Dog.species)
+
+# d2 = Dog("Buddy", 3)
+# d2.species = "German Shephard"
+
+# print("Dog 2 Species: ", d2.species)
+
+# print("Dog 1 Species: ", d1.species)
+# print("Dog Species: ", Dog.species)
+
+
+# print("This is last species: ", d2.species)
+
+# Dog.species = "Something New"
+
+# print("Dog Species: ", Dog.species)
+# print("Dog 1 Species: ", d1.species)
+# print("Dog 2 Species: ", d2.species)
+
+
+# Inheritance
+
+# class Dog: 
+#     def __init__(self, name) :
+#         self.name = name
+
+#     def display_name(self):
+#         print(f"Dog's Name: {self.name}")
+        
+# class Labrador(Dog):
+#     def sound(self):
+#         print("Labrador woofs")
+
+# class GuideDog(Labrador):
+#     def guide(self):
+#         print(f"{self.name}Guides the way")
+
+
+# class Friendly: 
+#     def greet(self):
+#         print("Friendly")
+
+# class GoldenRetriever(Dog, Friendly): 
+#     def sound(self): 
+#         print("Golden Retriever Barks")
+
+#     def somthing(self):
+#         print("Something")
+
+# dog1 = Dog("Tommy")
+# dog1.display_name()
+        
+# dog2 = Labrador("Netiz")
+# dog2.display_name()
+# dog2.sound()
+
+# dog3 = GuideDog("Max")
+
+# dog3.display_name()
+# dog3.sound()
+# dog3.guide()
+
+# dog4 = GoldenRetriever("Charlie")
+# dog4.display_name()
+# dog4.sound()
+# dog4.greet()
+
+# print(GoldenRetriever.mro())
+
+# Multiple Inheritance - Diamond Problem
+
+# class A: 
+#     def show(self): 
+#         print("A's show method")
+
+# class B(A): 
+#     def show(self):
+#         print("B's show method")
+
+# class C(A): 
+#     def show(self):
+#         print("C's show method")
+
+
+# class D(B, C): 
+#     pass
+
+# obj = D()
+
+# obj.show()
+# print(D.mro())
+
+# Polymorphism - Compile Time
+
+# class Calculator: 
+#     def add(self, *args):
+#         return sum(args)
+
+# cal = Calculator()
+
+# print(cal.add(10, 20, 40))
+# print(cal.add(10.2, 20, 30.4))
+# print(cal.add("Hello ", "My ", "Name ", "is ", "ShAn"))
+
+
+# def add(itr): 
+#     result = itr[0]
+#     for i in itr[1:]:
+#         result += i
+
+#     return result
+
+# print(add(["Hello ", "My ", "Name ", "is ", "ShAn"]))
+
+# Polymorphism - Run Time
+
+# class Animal: 
+#     def speak(self): 
+#         return "Animal Speak"
+
+
+# class Dog(Animal): 
+#     # 1. Method Overriding
+#     def speak(self): 
+#         return "Woof!!!"
+
+# # 2. Duck Typing
+# class Cat: 
+#     def speak(self): 
+#         return "Meaw"
+    
+# print(Animal().speak())
+# print(Dog().speak())
+
+# def make_animal_speak(animal): 
+#     return animal.speak()
+
+# print(make_animal_speak(Cat()))
+
+
+# 3. Operator Overloading
+
+# class Vector: 
+#     def __init__(self, x, y) :
+#         self.x = x
+#         self.y = y
+
+#     def __add__(self, other): 
+#         return Vector(self.x + other.x ,self.y + other.y)
+    
+#     def __repr__(self):
+#         return f"Vector({self.x}, {self.y})"
+
+# v1 = Vector(2, 3)
+# v2 = Vector(4, 5)
+
+# v3 = v1+v2
+
+# print(v3)
+
+
+# Encapsulation
+
+# class Dog: 
+#     def __init__(self, name, breed, age):
+#         self.name = name # Public Attribute
+#         self._breed = breed # Protected Attribute
+#         self.__age = age
+
+#     # Public Method
+#     def get_info(self): 
+#         return f"Name: {self.name}, Breed: {self._breed}, Age: {self.__age}"
+
+#     # Getter and Setter for Private Attribute
+
+#     def get_age(self): 
+#         return self.__age
+    
+#     def set_age(self, age): 
+#         if age > 0: 
+#             self.__age = age
+#         else:
+#             print("Invalid Age")
+        
+# dog = Dog("Buddy", "Labrodar", 3)
+
+# print(dog.name)
+# print(dog._breed)
+
+# print(dog.get_age())
+
+# dog.set_age(5)
+# print(dog.get_age())
+
+
+# Encapsulation
+
+from abc import ABC, abstractmethod
+
+class Dog(ABC): # Abstract Method
+    def __init__(self, name):
+        self.name = name
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+    def display_name(self): 
+        print(f"Dog's Name: {self.name}")
+
+class Labrador(Dog): # Partial Abstraction
+    def sound(self): 
+        print("Labrador Woof!")
+
+class Beagle(Dog): 
+    def sound(self):
+        print("Beagle Bark!")
+
+
+dogs = [Labrador("Buddy"), Beagle("Charlie")]
+
+for dog in dogs: 
+    dog.display_name()
+    dog.sound()
+
+
